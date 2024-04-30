@@ -1,8 +1,9 @@
 "use strict"
 
-let loanAmount = 32174;
-let interestRate = 8.65;
-let loanTermMonths = 12;
+let loanAmount = 53000;
+let interestRate = 7.63;
+let loanTermMonths = 15;
+let totalPayments = "";
 
 
 document.querySelector('#mortgageForm').addEventListener('submit', function(event) {
@@ -11,12 +12,15 @@ document.querySelector('#mortgageForm').addEventListener('submit', function(even
     // Get form inputs
     const loanAmount = parseFloat(document.querySelector('#loanAmount').value);
     const interestRate = parseFloat(document.querySelector('#interestRate').value) / 100 / 12; // Monthly interest rate
-    const loanTermMonths = parseFloat(document.querySelector('#loanTerm').value) * 12; // Loan term in months
+    const totalPayments = parseFloat(document.querySelector('#loanTerm').value) * 12; // Loan term in months
 
     // Calculate monthly mortgage payment
-    const monthlyPayment = (loanAmount * interestRate) / (1 - Math.pow(1 + interestRate, -loanTermMonths));
+    const monthlyPayment = loanAmount * (interestRate*Math.pow(1+interestRate, totalPayments)) / (interestRate*Math.pow(1+interestRate, totalPayments)-1)
+    const totalAmount = (totalPayments * monthlyPayment)
+    const totalnterest = (totalAmount - loanAmount)
+
 
     // Display result
-    document.querySelector('#result').innerHTML = `Monthly Mortgage Payment: $${monthlyPayment.toFixed(2)}`;
+    document.querySelector('#result').innerHTML = `Monthly Mortgage Payment: $${monthlyPayment.toFixed(2)} your totalInterest paid $${totalnterest.toFixed(2)} `;
 });
 

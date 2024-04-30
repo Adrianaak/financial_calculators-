@@ -29,7 +29,10 @@
                         <a class="nav-link" href="basicCalculator.html">Basic Calculator</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="mortgageCalculator.html">Mortgage Calculator</a>
+                        <a class="nav-link" href="mortgageCalculator.html">Mortgage Calculator</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="futureValueCal.html">Future Value Calculator</a>
                     </li>
                     <li class="nav-item">
 
@@ -39,29 +42,28 @@
         </div>
     </nav>
 
-    <style>
-        .container {
-            text-align: center;
-        }
-    </style>
-
-    <div class="container">
-        <h1>Mortgage Calculator</h1>
-        <form id="mortgageForm">
-            <label for="loanAmount">Loan Amount (Principle):</label>
-            <input type="number" id="loanAmount" required><br><br>
-
-            <label for="interestRate">Interest Rate (%8.65):</label>
-            <input type="number" id="interestRate" step="0.01" required><br><br>
-
-            <label for="loanTerm">Loan Term (Term):</label>
-            <input type="number" id="loanTerm" required><br><br>
-
-            <button type="submit">Calculate</button>
+    <section class="w-50 mx-auto">
+        <h1 class="my-3 text-center">Future Value Calculator</h1>
+        <form id="futureValueForm">
+            <div class="my-3">
+                <label for="deposit">Deposit</label>
+                <input type="number" class="form-control" id="deposit">
+            </div>
+            <div class="my-3">
+                <label for="interestRate">Interest Rate</label>
+                <input type="number" step=".001" class="form-control" id="Interest Rate">
+            </div>
+            <div class="my-3">
+                <label for="years">Years</label>
+                <input type="number" class="form-control" id="years">
+            </div>
+            <div id="results" class="my-3" ></div>
+            <button class="btn btn-primary" type="submit">Calculate Future Value</button>
+            <button type="button" id="resetForm" class="btn btn-success">Reset Form</button>
         </form>
-    </div>
 
-    <div id="result"></div>
+
+
     </section>
 
 
@@ -70,8 +72,7 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 
-    <!-- link mortgCal.js -->
-    <script src="scripts/mortgCal.js"></script>
+    <script src="scripts/futureValueCal.js"></script>
 </body>
 
 </html>
